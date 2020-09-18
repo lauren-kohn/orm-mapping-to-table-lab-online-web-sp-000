@@ -14,26 +14,21 @@ class Student
     DB[:conn].execute(sql)
   end 
   
-#  def self.drop_table 
-#    sql = <<- SQL
-#      DROP TABLE students
-#    SQL 
-#    DB[:conn].execute(sql)
-#  end
+  def self.drop_table 
+    sql = "DROP TABLE students"
+    DB[:conn].execute(sql)
+  end
   
-#  def save(name, grade)
-#    sql = <<- SQL
-#      INSERT INTO students (name, grade)
-#      VALUES ( ?, ? )
-#    SQL 
-#    DB[:conn].execute(sql, self.name, self.grade)
-#    @id = DB[:conn].execute("SELECT last_insert_rowid() FROM songs")[0][0]
-#  end 
+  def save(name, grade)
+    sql = "INSERT INTO students (name, grade) VALUES ( ?, ? )"
+    DB[:conn].execute(sql, self.name, self.grade)
+    @id = DB[:conn].execute("SELECT last_insert_rowid() FROM songs")[0][0]
+  end 
   
-#  def self.create(name, grade) 
-#    student = Student.new(name, grade)
-#    student.save
-#    student
-#  end 
+  def self.create(name, grade) 
+    student = Student.new(name, grade)
+    student.save
+    student
+  end 
   
 end
