@@ -17,4 +17,12 @@ class Student
   
   end
   
+  def save(name, grade)
+    
+  end 
+  
+  def self.create 
+    
+  end 
+  
 end
